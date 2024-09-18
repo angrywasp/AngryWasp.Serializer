@@ -11,14 +11,7 @@ namespace AngryWasp.Serializer.Serializers
     {
         public string Serialize(byte[] value) => value.ToHex();
 
-        public byte[] Deserialize(string value) => value.FromByteHex();
-    }
-
-    public class SbyteArraySerializer : ISerializer<sbyte[]>
-    {
-        public string Serialize(sbyte[] value) => value.ToHex();
-
-        public sbyte[] Deserialize(string value) => value.FromSByteHex();
+        public byte[] Deserialize(string value) => value.FromHex();
     }
 
     public class CharArraySerializer : ISerializer<char[]>
@@ -45,7 +38,7 @@ namespace AngryWasp.Serializer.Serializers
             ushort[] ret = new ushort[chunks.Length];
 
             for (int i = 0; i < chunks.Length; i++)
-                ret[i] = chunks[i].FromByteHex().ToUShort();
+                ret[i] = chunks[i].FromHex().ToUShort();
 
             return ret;
         }
@@ -68,7 +61,7 @@ namespace AngryWasp.Serializer.Serializers
             short[] ret = new short[chunks.Length];
 
             for (int i = 0; i < chunks.Length; i++)
-                ret[i] = chunks[i].FromByteHex().ToShort();
+                ret[i] = chunks[i].FromHex().ToShort();
 
             return ret;
         }
@@ -91,7 +84,7 @@ namespace AngryWasp.Serializer.Serializers
             uint[] ret = new uint[chunks.Length];
 
             for (int i = 0; i < chunks.Length; i++)
-                ret[i] = chunks[i].FromByteHex().ToUInt();
+                ret[i] = chunks[i].FromHex().ToUInt();
 
             return ret;
         }
@@ -114,7 +107,7 @@ namespace AngryWasp.Serializer.Serializers
             int[] ret = new int[chunks.Length];
 
             for (int i = 0; i < chunks.Length; i++)
-                ret[i] = chunks[i].FromByteHex().ToInt();
+                ret[i] = chunks[i].FromHex().ToInt();
 
             return ret;
         }
@@ -137,7 +130,7 @@ namespace AngryWasp.Serializer.Serializers
             ulong[] ret = new ulong[chunks.Length];
 
             for (int i = 0; i < chunks.Length; i++)
-                ret[i] = chunks[i].FromByteHex().ToULong();
+                ret[i] = chunks[i].FromHex().ToULong();
 
             return ret;
         }
@@ -160,7 +153,7 @@ namespace AngryWasp.Serializer.Serializers
             long[] ret = new long[chunks.Length];
 
             for (int i = 0; i < chunks.Length; i++)
-                ret[i] = chunks[i].FromByteHex().ToLong();
+                ret[i] = chunks[i].FromHex().ToLong();
 
             return ret;
         }
@@ -182,25 +175,4 @@ namespace AngryWasp.Serializer.Serializers
             }
         }
     }
-
-    /*public class FloatArraySerializer : ISerializer<float[]>
-    {
-        public string Serialize(float[] value) => throw new NotImplementedException();
-
-        public float[] Deserialize(string value) => throw new NotImplementedException();
-    }
-
-    public class DoubleArraySerializer : ISerializer<double[]>
-    {
-        public string Serialize(double[] value) => throw new NotImplementedException();
-
-        public double[] Deserialize(string value) => throw new NotImplementedException();
-    }
-
-    public class DecimalArraySerializer : ISerializer<decimal[]>
-    {
-        public string Serialize(decimal[] value) => throw new NotImplementedException();
-
-        public decimal[] Deserialize(string value) => throw new NotImplementedException();
-    }*/
 }
